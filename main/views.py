@@ -8,6 +8,7 @@ from .models import Song
 from .models import Execution
 from .models import Cvisit
 from django.conf import settings
+import socket
 
 
 def index(request, comp_id):
@@ -54,8 +55,8 @@ def index(request, comp_id):
 
 
 def index01(request):
-
-    #indexx()
+    if "DESKTOP" in socket.gethostname():
+        indexx()
 
     comp = Composer.objects.filter().order_by('fam_composer')
 
