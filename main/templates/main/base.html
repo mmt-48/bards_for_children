@@ -140,8 +140,12 @@ function other_pause(b){
 
 </script>
 
+<a  href="{% url 'home' %}">
+  <p align="center"> Вернуться на Главную страницу</p>
+</a>
 
  <h1 align="center">{{pn}}</h1>
+
  {% for e in exe %}
   {% for s in son %}
    {% if e.song_id_id == s.pk %}
