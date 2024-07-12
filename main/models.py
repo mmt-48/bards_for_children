@@ -8,7 +8,7 @@ class Composer(models.Model):
     photo = models.ImageField(upload_to='composer', default='')
 
     def __str__(self):
-        return self.fam_composer
+        return str(self.name_composer)+str(self.fam_composer)
 
     class Meta:
         verbose_name = 'composer'
@@ -24,7 +24,7 @@ class Avtor_text(models.Model):
     photo = models.ImageField(upload_to='avtor', default='')
 
     def __str__(self):
-        return self.fam_avtor_text
+        return str(self.fam_avtor_text)+str(self.name_avtor_text)
 
     class Meta:
         verbose_name = 'avtor_text'
@@ -56,7 +56,7 @@ class Artist(models.Model):
     photo = models.ImageField(upload_to='artist', default='')
 
     def __str__(self):
-        return self.fam_artist
+        return str(self.name_artist)+str(self.fam_artist)
 
     class Meta:
         verbose_name = 'artist'

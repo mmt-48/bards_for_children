@@ -143,30 +143,31 @@ function other_pause(b){
 <a  href="{% url 'home' %}">
   <p align="center"> На Главную страницу</p>
 </a>
+{% if "1" in pn %}
 
+ <h1 align="center">{{pn|slice:"1:"}}</h1>
+{%else%}
  <h1 align="center">{{pn}}</h1>
-
- {% for e in exe %}
+{%endif%}
+{% for e in exe %}
   {% for s in son %}
    {% if e.song_id_id == s.pk %}
     {%if e.workfield1 == 1%}
-<div class="thumbb">
- <HR NOSHADE WIDTH="80%" color="Blue"  SIZE="8">
-      <h1 align="center"> {{s.name_song}} </h1>
-   </div>
-
+      <div class="thumbb">
+       <HR NOSHADE WIDTH="80%" color="Blue"  SIZE="8">
+       <h1 align="center"> {{s.name_song}} </h1>
+      </div>
 
     {% endif %}
-    {% for c in comp %}
-     {% if s.comp_id_id == c.pk %}
+   {% for c in comp %}
+   {% if s.comp_id_id == c.pk %}
 
-      {% for a in avt %}
-        {% if s.avt_id_id == a.pk %}
-
-         {%if s.workfield == 1 or  e.workfield1 == 1%}
-           {%block odnoisp%}
-           {%endblock%}
-         {%else%}
+     {% for a in avt %}
+      {% if s.avt_id_id == a.pk %}
+       {%if s.workfield == 1 or  e.workfield1 == 1%}
+         {%block odnoisp%}
+         {%endblock%}
+        {%else%}
 
            {%block neodnoisp%}
 

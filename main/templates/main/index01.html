@@ -50,8 +50,15 @@
 {% for c in comp %}
 <a  href="{% url 'index' c.pk %}">
            <div class="thumb">
+            {% if "1" in c.name_composer %}
+               <p>{{c.name_composer|slice:"1:"}} {{c.fam_composer}}</p>
+               <img src="{{ c.photo.url }}"  width="255"  height="255">
+             {%else%}
                <p>{{c.name_composer}} {{c.fam_composer}}</p>
                <img src="{{ c.photo.url }}"  width="189"  height="255">
+
+             {%endif%}
+
            </div>
 </a>
  {% endfor %}

@@ -31,10 +31,14 @@
       <p> музыка </p>
         {%endif%}
     {%endif%}
+     {% if "1" in c.name_composer %}
+        <p> {{c.name_composer|slice:"1:"}} {{c.fam_composer}}</p>
+      <img src="{{c.photo.url }}" width="255">
 
-     <p> {{c.name_composer}} {{c.fam_composer}}</p>
-     <img src="{{c.photo.url }}" width="189">
-
+     {%else%}
+      <p> {{c.name_composer}} {{c.fam_composer}}</p>
+      <img src="{{c.photo.url }}" width="189">
+     {%endif%}
     </div>
 
      {% for c2 in comp1 %}
@@ -75,16 +79,14 @@
 
     {% if c.fam_composer != ar.fam_artist or c.name_composer != ar.name_artist %}
       {%  if a.fam_avtor_text != ar.fam_artist or a.name_avtor_text != ar.name_artist%}
-     <div class="thumb">
-
-          <p> исполнение </p>
+       <div class="thumb">
+        <p> исполнение </p>
         {% if "1" in ar.name_artist %}
-        <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
-       <img src="{{ar.photo.url}}" width="255" >
-        {%endif%}
-      {% if "1" not in ar.name_artist %}
-       <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
-       <img src="{{ar.photo.url}}" width="189" >
+          <p>{{ar.name_artist|slice:"1:"}} {{ar.fam_artist}}</p>
+          <img src="{{ar.photo.url}}" width="255" >
+        {%else%}
+          <p>{{ar.name_artist}} {{ar.fam_artist}}</p>
+          <img src="{{ar.photo.url}}" width="189" >
         {%endif%}
      </div>
     {%endif%}
